@@ -1,10 +1,10 @@
-export type IntroInfoType = {
+export type IntoductionType = {
   title: string;
   subtitle: string;
   text: string;
 };
 
-export const INTRO_INFOS: IntroInfoType[] = [
+export const INTRODUCTION: IntoductionType[] = [
   {
     title: "My name is",
     subtitle: "Enzo Hespel",

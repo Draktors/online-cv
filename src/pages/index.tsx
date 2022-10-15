@@ -4,17 +4,17 @@ import Head from "next/head";
 
 import { Timeline } from "../components/timeline";
 import { AnimateIntroduction } from "../components/animateIntroduction";
-import { INTRO_INFOS } from "../data/textIntro";
+import { INTRODUCTION } from "../data/textIntro";
 import { TIMELINES_DATA } from "../data/timelineData";
 
 const Home: NextPage = () => {
-  const [dataIndex, setDataIndex] = useState(0);
+  const [introductionIndex, setIntroductionIndex] = useState(0);
 
   const updateDataIndex = () => {
-    if (dataIndex < INTRO_INFOS.length - 1) {
-      setDataIndex((prev) => prev + 1);
+    if (introductionIndex < INTRODUCTION.length - 1) {
+      setIntroductionIndex((prev) => prev + 1);
     } else {
-      setDataIndex(0);
+      setIntroductionIndex(0);
     }
   };
 
@@ -42,9 +42,9 @@ const Home: NextPage = () => {
         </div>
         <AnimateIntroduction
           updateDataIndex={updateDataIndex}
-          title={INTRO_INFOS[dataIndex].title}
-          subtitle={INTRO_INFOS[dataIndex].subtitle}
-          text={INTRO_INFOS[dataIndex].text}
+          title={INTRODUCTION[introductionIndex].title}
+          subtitle={INTRODUCTION[introductionIndex].subtitle}
+          text={INTRODUCTION[introductionIndex].text}
         />
 
         <div className="grid gap-8 md:gap-16  grid-cols-1 md:grid-cols-2">

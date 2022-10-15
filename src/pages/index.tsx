@@ -1,38 +1,11 @@
-import { useState, FC } from "react";
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { ProgressBar } from "../components/progressBar";
-import { INTRO_INFOS, IntroInfoType } from "../data/textIntro";
-
-type updateDataIndexType = { updateDataIndex: () => void };
-
-const Intro: FC<IntroInfoType & updateDataIndexType> = ({
-  title,
-  subtitle,
-  text,
-  updateDataIndex,
-}) => (
-  <div className="w-1/2 lg:w-1/3" key={title}>
-    <h2>
-      <div
-        className="animate-wiggle text-2xl font-bold mb-1"
-        style={{ transformOrigin: "left center" }}
-      >
-        {title}
-      </div>
-      <div
-        className="text-5xl font-bold animate-wiggleSlow"
-        style={{ transformOrigin: "left center" }}
-      >
-        {subtitle}
-      </div>
-    </h2>
-
-    <ProgressBar onFinish={updateDataIndex} />
-    <p className="text-xl">{text}</p>
-  </div>
-);
+import { Timeline } from "../components/timeline";
+import { AnimateIntroduction } from "../components/animateIntroduction";
+import { INTRO_INFOS } from "../data/textIntro";
+import { TIMELINES_DATA } from "../data/timelineData";
 
 const Home: NextPage = () => {
   const [dataIndex, setDataIndex] = useState(0);
@@ -67,12 +40,22 @@ const Home: NextPage = () => {
           <span className="mr-1">-</span>
           <p className="underline cursor-pointer">Anglais</p>
         </div>
-        <Intro
+        <AnimateIntroduction
           updateDataIndex={updateDataIndex}
           title={INTRO_INFOS[dataIndex].title}
           subtitle={INTRO_INFOS[dataIndex].subtitle}
           text={INTRO_INFOS[dataIndex].text}
         />
+
+        <div className="grid gap-8 md:gap-16  grid-cols-1 md:grid-cols-2">
+          {TIMELINES_DATA.map((timeline, i) => (
+            <Timeline
+              key={i}
+              timelineCategory={timeline.category}
+              timelineData={timeline.data}
+            />
+          ))}
+        </div>
       </main>
     </div>
   );

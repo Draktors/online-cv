@@ -27,7 +27,7 @@ export const ProgressBar: FC<ProgressBarType> = ({ onFinish }) => {
   }, [progressBarWidth]);
 
   return (
-    <div className="w-full bg-yellowOpacity rounded-sm h-1.5  mb-4">
+    <div className="w-full bg-yellowOpacity rounded-sm h-1.5  mb-2">
       <div
         className="bg-yellow h-1.5 rounded-sm transition ease-in-out delay-1000"
         style={{

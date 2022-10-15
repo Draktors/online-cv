@@ -13,7 +13,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span {
   font-family: "Baloo 2", sans-serif;
 }
 
@@ -34,4 +35,28 @@ a {
     color: white;
     background: #273d52;
   }
+}
+.timeline li:not(:last-child)::after {
+  width: 4px;
+  height: calc(
+    100% + 32px + 4px - 24px
+  ); /* 32px for margin bottom, 4px for next circle top position, -24px for circle height: ; */
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 24px;
+  z-index: 2;
+  background: #f4ca16;
+}
+
+.timeline li::before {
+  width: 24px;
+  height: 24px;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  z-index: 50;
+  border: 4px solid #f4ca16;
+  border-radius: 50%;
 }

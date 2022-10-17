@@ -3,8 +3,10 @@ import Head from "next/head";
 
 import { Timeline } from "../components/timeline";
 import { AnimateIntroduction } from "../components/animateIntroduction";
-import { INTRODUCTION } from "../data/textIntro";
-import { TIMELINES_DATA } from "../data/timelineData";
+import { Link } from "../components/link";
+import { INTRODUCTIONS } from "../data/introduction";
+import { TIMELINES } from "../data/timeline";
+import { CONTACTS } from "../data/contact";
 
 const Home: NextPage = () => (
   <div>
@@ -23,15 +25,25 @@ const Home: NextPage = () => (
     </Head>
 
     <main className="container mx-auto mt-8 px-8">
-      <div className="flex mb-9">
-        <p className="mr-1 cursor-pointer">Français</p>
-        <span className="mr-1">-</span>
-        <p className="underline cursor-pointer">Anglais</p>
+      <div className="flex justify-between">
+        <div className="flex mb-9">
+          <p className="mr-1 cursor-pointer">Français</p>
+          <span className="mr-1">-</span>
+          <p className="underline cursor-pointer">Anglais</p>
+        </div>
+
+        <div className="flex gap-8">
+          {CONTACTS.map((contact, i) => (
+            <Link key={i} href={contact.link}>
+              {contact.title}
+            </Link>
+          ))}
+        </div>
       </div>
-      <AnimateIntroduction data={INTRODUCTION} />
+      <AnimateIntroduction data={INTRODUCTIONS} />
 
       <div className="grid gap-8 lg:gap-16  grid-cols-1 lg:grid-cols-2">
-        {TIMELINES_DATA.map((timeline, i) => (
+        {TIMELINES.map((timeline, i) => (
           <Timeline
             key={i}
             timelineCategory={timeline.category}

@@ -4,7 +4,7 @@ export type IntoductionType = {
   text: string;
 };
 
-export const INTRODUCTION: IntoductionType[] = [
+export const INTRODUCTIONS: IntoductionType[] = [
   {
     title: "My name is",
     subtitle: "Enzo Hespel",

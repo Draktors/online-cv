@@ -7,7 +7,7 @@ export type TimelineDataProps = {
   description: string;
 };
 
-export const TIMELINES_DATA = [
+export const TIMELINES = [
   {
     category: "Experience",
     data: [

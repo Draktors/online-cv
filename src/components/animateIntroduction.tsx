@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { IntoductionType } from "../data/textIntro";
+import { IntoductionType } from "../data/introduction";
 import { ProgressBar } from "./progressBar";
 
 type AnimateIntroductionProps = {

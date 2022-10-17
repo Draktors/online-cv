@@ -16,11 +16,11 @@ module.exports = {
     },
     extend: {
       animation: {
-        wiggle: "wiggle 0.5s cubic-bezier(0.19, 1, 0.22, 1)",
-        wiggleSlow: "wiggle 1.4s cubic-bezier(0.19, 1, 0.22, 1)",
+        appear: "appear 0.5s cubic-bezier(0.19, 1, 0.22, 1)",
+        appearSlow: "appear 1.4s cubic-bezier(0.19, 1, 0.22, 1)",
       },
       keyframes: {
-        wiggle: {
+        appear: {
           "0%": { scale: "0" },
           "20%": { scale: "0" },
           "100%": { scale: "1" },

@@ -1,33 +1,44 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
-import { IntroInfoType } from "../data/textIntro";
+import { IntoductionType } from "../data/textIntro";
 import { ProgressBar } from "./progressBar";
 
-type updateDataIndexType = { updateDataIndex: () => void };
+type AnimateIntroductionProps = {
+  data: IntoductionType[];
+};
+export const AnimateIntroduction: FC<AnimateIntroductionProps> = ({ data }) => {
+  const [introductionIndex, setIntroductionIndex] = useState(0);
 
-export const AnimateIntroduction: FC<IntroInfoType & updateDataIndexType> = ({
-  title,
-  subtitle,
-  text,
-  updateDataIndex,
-}) => (
-  <div className="w-full lg:w-1/3 mb-8 lg:mb-10" key={title}>
-    <h2 className="mb-1">
-      <div
-        className="animate-wiggle text-2xl font-bold mb-1"
-        style={{ transformOrigin: "left center" }}
-      >
-        {title}
-      </div>
-      <div
-        className="text-4xl font-bold animate-wiggleSlow"
-        style={{ transformOrigin: "left center" }}
-      >
-        {subtitle}
-      </div>
-    </h2>
+  const updateDataIndex = () => {
+    if (introductionIndex < data.length - 1) {
+      setIntroductionIndex((prev) => prev + 1);
+    } else {
+      setIntroductionIndex(0);
+    }
+  };
 
-    <ProgressBar onFinish={updateDataIndex} />
-    <p className="text-md md:text-lg">{text}</p>
-  </div>
-);
+  return (
+    <div
+      className="w-full sm:w-3/5 lg:w-2/6 mb-8 lg:mb-10"
+      key={data[introductionIndex].title}
+    >
+      <h2 className="mb-1">
+        <div
+          className="animate-appear text-2xl font-bold mb-1"
+          style={{ transformOrigin: "left center" }}
+        >
+          {data[introductionIndex].title}
+        </div>
+        <div
+          className="text-4xl font-bold animate-appearSlow"
+          style={{ transformOrigin: "left center" }}
+        >
+          {data[introductionIndex].subtitle}
+        </div>
+      </h2>
+
+      <ProgressBar onFinish={updateDataIndex} />
+      <p className="text-md md:text-lg">{data[introductionIndex].text}</p>
+    </div>
+  );
+};

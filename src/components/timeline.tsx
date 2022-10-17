@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { TimelineDataProps } from "../data/timelineData";
+import { TimelineDataProps } from "../data/timeline";
 
 type TimelineProps = {
   timelineCategory: string;

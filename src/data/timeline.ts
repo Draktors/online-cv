@@ -23,14 +23,14 @@ export const TIMELINES = [
         startDate: format(new Date(2020, 9, 1), "yyyy"),
         endDate: format(new Date(2020, 11, 1), "yyyy"),
         description:
-          "Learning to work with micro-services (library component, utils package).",
+          "Learned to work with micro-services (library component, utils package).",
       },
       {
         title: "Ouihelp",
         startDate: format(new Date(2018, 7, 1), "yyyy"),
         endDate: format(new Date(2020, 9, 1), "yyyy"),
         description:
-          "Building stable and maintainable codebases using react / typescript.\n\nIntroducing a mobile first approach to an existing website powered by Gatsby.\n\nCreating modular responsive template component using modern css techniques and javascript librairies.\n\nEnhancement of continuous integration testing with CircleCi.",
+          "Built stable and maintainable codebases using react / typescript.\n\nIntroduced a mobile first approach to an existing website powered by Gatsby.\n\nCreated modular responsive template component using modern css techniques and javascript librairies.\n\nEnhancement of continuous integration testing with CircleCi.",
       },
     ],
   },

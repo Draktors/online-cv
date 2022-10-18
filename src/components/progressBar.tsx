@@ -10,10 +10,11 @@ export const ProgressBar: FC<ProgressBarType> = ({ onFinish }) => {
 
   const updateProgressBar = () => {
     progress = setInterval(() => {
-      setProgressBarWidth((prev) => prev + 1);
-    }, 50);
+      setProgressBarWidth((prev) => prev + 0.1);
+    }, 5);
 
-    if (progressBarWidth === 100) {
+    console.log(progressBarWidth);
+    if (progressBarWidth >= 100) {
       onFinish();
       setProgressBarWidth(0);
     }
@@ -27,9 +28,9 @@ export const ProgressBar: FC<ProgressBarType> = ({ onFinish }) => {
   }, [progressBarWidth]);
 
   return (
-    <div className="w-full bg-yellowOpacity rounded-sm h-1.5  mb-2">
+    <div className="w-full bg-yellowOpacity rounded-sm h-1  mb-2">
       <div
-        className="bg-yellow h-1.5 rounded-sm transition ease-in-out delay-1000"
+        className="bg-yellow h-1 rounded-sm transition ease-in-out delay-1000"
         style={{
           width: `${progressBarWidth}%`,
           transition: "ease 0.05s",

@@ -28,23 +28,14 @@ const Home: NextPage = () => (
     </Head>
 
     <main className="container mx-auto mt-8 px-8">
-      <div className="flex justify-between mb-9">
-        <div className="flex">
-          <p className="mr-1 cursor-pointer hidden sm:block">Français</p>
-          <p className="mr-1 cursor-pointer block sm:hidden">Fr</p>
-          <span className="mr-1">-</span>
-          <p className="underline cursor-pointer hidden sm:block">English</p>
-          <p className="underline cursor-pointer block sm:hidden">En</p>
-        </div>
-
-        <div className="flex gap-4 sm:gap-8">
-          {CONTACTS.map((contact, i) => (
-            <Link key={i} href={contact.link}>
-              {contact.title}
-            </Link>
-          ))}
-        </div>
+      <div className="flex gap-4 sm:gap-8 mb-9">
+        {CONTACTS.map((contact, i) => (
+          <Link key={i} href={contact.link}>
+            {contact.title}
+          </Link>
+        ))}
       </div>
+
       <AnimateIntroduction data={INTRODUCTIONS} />
 
       <div className="grid gap-8 lg:gap-16  grid-cols-1 lg:grid-cols-2">
